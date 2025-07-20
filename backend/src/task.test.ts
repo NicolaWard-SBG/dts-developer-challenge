@@ -18,7 +18,7 @@ describe("Task API Basic Tests", () => {
     const taskData = {
       title: "Test Task",
       status: "pending",
-      dueDate: "2024-12-31",
+      dueDate: "2025-07-20",
     };
 
     const response = await request(app)
@@ -37,10 +37,74 @@ describe("Task API Basic Tests", () => {
     expect(Array.isArray(response.body)).toBe(true);
   });
 
+  test("should get task by ID", async () => {
+    // Create a task
+    const taskData = {
+      title: "Test Task",
+      status: "pending",
+      dueDate: "2025-07-20",
+    };
+
+    const createResponse = await request(app)
+      .post("/tasks")
+      .send(taskData)
+      .expect(201);
+
+    const taskId = createResponse.body.id;
+
+    const response = await request(app).get(`/tasks/${taskId}`).expect(200);
+
+    expect(response.body.id).toBe(taskId);
+    expect(response.body.title).toBe("Test Task");
+  });
+
+  test("should update task status", async () => {
+    // Create a task
+    const taskData = {
+      title: "Test Task",
+      status: "pending",
+      dueDate: "2025-07-20",
+    };
+
+    const createResponse = await request(app)
+      .post("/tasks")
+      .send(taskData)
+      .expect(201);
+
+    const taskId = createResponse.body.id;
+
+    // Then update it
+    const response = await request(app)
+      .patch(`/tasks/${taskId}/status`)
+      .send({ status: "completed" })
+      .expect(200);
+
+    expect(response.body.status).toBe("completed");
+  });
+
+  test("should delete task", async () => {
+    // Create a task
+    const taskData = {
+      title: "Test Task",
+      status: "pending",
+      dueDate: "2025-07-20",
+    };
+
+    const createResponse = await request(app)
+      .post("/tasks")
+      .send(taskData)
+      .expect(201);
+
+    const taskId = createResponse.body.id;
+
+    // Then delete it
+    await request(app).delete(`/tasks/${taskId}`).expect(204);
+  });
+
   test("should reject task without title", async () => {
     const taskData = {
       status: "pending",
-      dueDate: "2024-12-31",
+      dueDate: "2025-07-20",
     };
 
     await request(app).post("/tasks").send(taskData).expect(400);
@@ -50,7 +114,7 @@ describe("Task API Basic Tests", () => {
     const taskData = {
       title: "Test Task",
       status: "invalid",
-      dueDate: "2024-12-31",
+      dueDate: "2025-07-20",
     };
 
     await request(app).post("/tasks").send(taskData).expect(400);
