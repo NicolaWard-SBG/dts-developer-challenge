@@ -24,10 +24,12 @@ function App() {
   // State for showing/hiding the form
   const [showForm, setShowForm] = useState(false);
 
+  const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:3001";
+
   // Get all tasks from the server
   const getTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/tasks");
+      const response = await axios.get(`${API_BASE}/tasks`);
       setTasks(response.data);
     } catch (error) {
       alert("Error getting tasks. Make sure the server is running!");
@@ -49,7 +51,7 @@ function App() {
         dueDate: dueDate,
       };
 
-      await axios.post("http://localhost:3001/tasks", newTask);
+      await axios.post(`${API_BASE}/tasks`, newTask);
 
       // Clear the form
       setTitle("");
@@ -68,7 +70,7 @@ function App() {
   // Update task status
   const updateStatus = async (taskId: number, newStatus: string) => {
     try {
-      await axios.patch(`http://localhost:3001/tasks/${taskId}/status`, {
+      await axios.patch(`${API_BASE}/taskstasks/${taskId}/status`, {
         status: newStatus,
       });
       getTasks(); // Refresh the list
@@ -81,7 +83,7 @@ function App() {
   const deleteTask = async (taskId: number) => {
     if (window.confirm("Are you sure you want to delete this task?")) {
       try {
-        await axios.delete(`http://localhost:3001/tasks/${taskId}`);
+        await axios.delete(`${API_BASE}/tasks/${taskId}`);
         getTasks(); // Refresh the list
       } catch (error) {
         alert("Error deleting task!");
@@ -108,8 +110,9 @@ function App() {
           <h3>Add New Task</h3>
 
           <div>
-            <label>Title:</label>
+            <label htmlFor="task-title">Title:</label>
             <input
+              id="task-title"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -118,8 +121,9 @@ function App() {
           </div>
 
           <div>
-            <label>Description:</label>
+            <label htmlFor="task-desc">Description:</label>
             <textarea
+              id="task-desc"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Enter description (optional)"
@@ -127,8 +131,12 @@ function App() {
           </div>
 
           <div>
-            <label>Status:</label>
-            <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <label htmlFor="task-status">Status:</label>
+            <select
+              id="task-status"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
               <option value="pending">Pending</option>
               <option value="in-progress">In Progress</option>
               <option value="completed">Completed</option>
@@ -136,8 +144,9 @@ function App() {
           </div>
 
           <div>
-            <label>Due Date:</label>
+            <label htmlFor="task-due">Due Date:</label>
             <input
+              id="task-due"
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
