@@ -50,15 +50,7 @@ A full-stack task management application built with React (TypeScript) frontend 
 
    ```
 
-3. Install required packages:
-
-   ```bash
-   npm install express cors better-sqlite3
-   npm install --save-dev @types/express @types/cors typescript ts-node nodemon jest supertest @types/jest @types/supertest
-
-   ```
-
-4. Start the backend server:
+3. Start the backend server:
    ```bash
    npm run dev
    ```
