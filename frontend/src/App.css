@@ -1,0 +1,109 @@
+/* Simple App.css for beginners */
+
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+h3 {
+  color: #555;
+}
+
+h4 {
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+/* Buttons */
+button {
+  background-color: #0056b3;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Form styles */
+.form {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+}
+
+.form div {
+  margin-bottom: 15px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.form textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+/* Task list */
+.tasks {
+  margin-top: 30px;
+}
+
+.task {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.task p {
+  margin: 5px 0;
+}
+
+.task-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.task-buttons select {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.task-buttons button {
+  background-color: #dc3545;
+  margin: 0;
+}
+
+.task-buttons button:hover {
+  background-color: #c82333;
+}
