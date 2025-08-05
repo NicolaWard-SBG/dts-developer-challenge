@@ -70,7 +70,7 @@ function App() {
   // Update task status
   const updateStatus = async (taskId: number, newStatus: string) => {
     try {
-      await axios.patch(`${API_BASE}/taskstasks/${taskId}/status`, {
+      await axios.patch(`${API_BASE}/tasks/${taskId}/status`, {
         status: newStatus,
       });
       getTasks(); // Refresh the list
