@@ -73,14 +73,7 @@ The backend will run on `http://localhost:3001`
 
    ```
 
-3. Install axios:
-
-   ```bash
-   npm install axios
-
-   ```
-
-4. Start the frontend development server:
+3. Start the frontend development server:
    ```bash
    npm start
    ```
