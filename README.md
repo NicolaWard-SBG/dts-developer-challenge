@@ -11,6 +11,47 @@ A full-stack task management application built with React (TypeScript) frontend 
 - RESTful API
 - SQLite database storage
 
+## Way of Working
+
+This project was developed following agile development practices and modern software engineering workflows:
+
+### Project Management
+
+- **Trello Board**: Work was organizsd using a Trello board with individual tickets for each feature
+- **Board Link**: [DTS Developer Challenge Board](https://trello.com/invite/b/687d0f78573bce4ee6c3b640/ATTI9e80699fde0fedadaef1caff558c9c2e51AF80D9/dts-developer-challenge)
+- **Task Breakdown**: The project was split into focused tickets including:
+  - Backend API development
+  - Frontend React application
+  - CRUD operations
+  - CSS styling and responsive design
+  - Documentation(README)
+
+### Code Quality & Review Process
+
+- **GitHub Copilot**: Utilised built-in GitHub Copilot code review features for:
+  - Code suggestions and improvements
+  - Best practice recommendations
+  - Security vulnerability detection
+- **Pre-merge Reviews**: All code was reviewed using Copilot suggestions before merging
+- **TypeScript**: Full type safety implementation to catch errors at compile time
+
+### Testing Strategy
+
+- **Unit Tests**: Comprehensive unit tests written for each service layer
+- **Backend Testing**: Complete API endpoint testing using Jest and Supertest
+- **Test Coverage**: All CRUD operations and edge cases covered
+
+### Production-Ready Considerations
+
+In a typical agile working environment, this code would undergo additional quality assurance:
+
+- **QA Testing**: Dedicated QA team would perform:
+  - Manual testing of all user journeys
+  - Cross-browser compatibility testing
+  - Mobile responsiveness validation
+- **User Acceptance Testing**: Stakeholder review and approval
+- **CI/CD Pipeline**: Automated deployment with additional integration tests
+
 ## Tech Stack
 
 ### Frontend
